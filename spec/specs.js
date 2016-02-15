@@ -1,11 +1,6 @@
 var expect = require("chai").expect;
-var memory = require('./../js/memory.js');
-Game = require('./../js/memory.js').Game;
-Space = require('./../js/memory.js').Space;
-
-var flipAndCheck = memory.flipAndCheck;
-var setupBoard = memory.setupBoard;
-var checkSpace = memory.getSpace;
+var Game = require('./../js/memory.js').Game;
+var Space = require('./../js/memory.js').Space;
 
 describe('Space', function() {
 
@@ -36,8 +31,8 @@ describe('Space', function() {
     testSpace3.pic = "img/cat.jpg";
     var testSpace4 = new Space (2, 2);
     testSpace3.pic = "img/horse.jpg";
-    var firstCheck = flipAndCheck(testSpace1, testSpace2);
-    var secondCheck = flipAndCheck(testSpace3, testSpace4);
+    var firstCheck = testSpace1.flipAndCheck(testSpace2);
+    var secondCheck = testSpace3.flipAndCheck(testSpace4);
     expect(testSpace1.flipped).to.be.true;
     expect(testSpace2.flipped).to.be.true;
     expect(firstCheck).to.be.true;

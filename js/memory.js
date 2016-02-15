@@ -1,15 +1,15 @@
-exports.Space = function (xCoordinate, yCoordinate){
+var Space = function (xCoordinate, yCoordinate){
   this.xCoordinate = xCoordinate;
   this.yCoordinate = yCoordinate;
   this.flipped = false;
   this.pic = '';
 };
 
-exports.flipAndCheck = function(testSpace1, testSpace2) {
-  testSpace1.flipped = true;
+Space.prototype.flipAndCheck = function(testSpace2) {
+  this.flipped = true;
   testSpace2.flipped = true;
-  if (testSpace1.pic !== testSpace2.pic ){
-    testSpace1.flipped = false;
+  if (this.pic !== testSpace2.pic ){
+    this.flipped = false;
     testSpace2.flipped = false;
     return false;
   } else {
@@ -17,7 +17,7 @@ exports.flipAndCheck = function(testSpace1, testSpace2) {
   }
 };
 
-exports.Game = function(rows, columns) {
+var Game = function(rows, columns) {
   this.rows = rows;
   this.columns = columns;
   this.spaces = [];
@@ -26,7 +26,7 @@ exports.Game = function(rows, columns) {
   this.winMessage = "You've found all the matches!";
 };
 
-exports.Game.prototype.setupBoard = function () {
+ Game.prototype.setupBoard = function () {
   if (this.columns % 2 === 0 && this.rows % 2 === 0) {
     for (var x = 1; x <= this.columns; x++) {
       for(var y = 1; y <= this.rows; y++) {
@@ -39,8 +39,11 @@ exports.Game.prototype.setupBoard = function () {
   }
 };
 
-exports.Game.prototype.getSpace = function (xIndex, yIndex) {
+Game.prototype.getSpace = function (xIndex, yIndex) {
   return this.spaces.find(function(space) {
     return space.xCoordinate === xIndex && space.yCoordinate === yIndex;
   });
 };
+
+exports.Space = Space;
+exports.Game = Game;
