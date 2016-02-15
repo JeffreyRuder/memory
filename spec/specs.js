@@ -1,8 +1,8 @@
 var expect = require("chai").expect;
 var memory = require('./../js/memory.js');
+Game = require('./../js/memory.js').Game;
+Space = require('./../js/memory.js').Space;
 
-Game = memory.Game;
-Space = memory.Space;
 var flipAndCheck = memory.flipAndCheck;
 var setupBoard = memory.setupBoard;
 var checkSpace = memory.getSpace;

@@ -34,6 +34,8 @@ gulp.task("clean", function(){
 gulp.task("build", ["clean"], function() {
   if (buildProduction) {
     gulp.start('minifyScripts');
+    return gulp.src(['./css/*.css'])
+      .pipe(gulp.dest('./build/css'));
   } else {
     gulp.start('jsBrowserify');
   }
