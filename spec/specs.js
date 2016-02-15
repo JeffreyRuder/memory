@@ -1,3 +1,12 @@
+var expect = require("chai").expect;
+var memory = require('./../js/memory.js');
+
+Game = memory.Game;
+Space = memory.Space;
+var flipAndCheck = memory.flipAndCheck;
+var setupBoard = memory.setupBoard;
+var checkSpace = memory.getSpace;
+
 describe('Space', function() {
 
   it("has a position", function() {
@@ -40,15 +49,15 @@ describe('Space', function() {
 
 describe("Game", function(){
   it("accepts x and y size of game and checks that they're even", function(){
-    var testGame = new Game ();
-    testGame.setupBoard(2, 2);
+    var testGame = new Game (2, 2);
+    testGame.setupBoard();
     expect(testGame.spaces).to.be.an("array");
     expect(testGame.spaces.length).to.equal(4);
   });
 
   it("returns a space based on x and y coordinates", function () {
-    var testGame = new Game ();
-    testGame.setupBoard(2, 2);
+    var testGame = new Game (2, 2);
+    testGame.setupBoard();
     testGame.getSpace(1, 1).flipped = true;
     expect(testGame.spaces[0].flipped).to.be.true;
   });
