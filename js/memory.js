@@ -2,18 +2,15 @@ var Space = function (xCoordinate, yCoordinate){
   this.xCoordinate = xCoordinate;
   this.yCoordinate = yCoordinate;
   this.flipped = false;
+  this.matched = false;
   this.pic = '';
 };
 
-Space.prototype.flipAndCheck = function(testSpace2) {
-  this.flipped = true;
-  testSpace2.flipped = true;
-  if (this.pic !== testSpace2.pic ){
-    this.flipped = false;
-    testSpace2.flipped = false;
-    return false;
-  } else {
+Space.prototype.checkForMatch = function(testSpace2) {
+  if (this.pic === testSpace2.pic ){
     return true;
+  } else {
+    return false;
   }
 };
 
