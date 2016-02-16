@@ -39,13 +39,11 @@ var play = function (thisGame) {
 
         var match = firstSpace.checkForMatch(secondSpace);
         if (match) {
-          console.log("It's a match!");
           firstSpace.matched = true;
           secondSpace.matched = true;
         } else {
           $("#" + secondDOMCell).children(".image").fadeOut(1000);
           $("#" + firstDOMCell).children(".image").fadeOut(1000);
-          console.log("No match");
         }
         firstSpace = "";
         secondSpace = "";

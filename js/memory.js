@@ -18,8 +18,6 @@ var Game = function(rows, columns) {
   this.rows = rows;
   this.columns = columns;
   this.spaces = [];
-  this.turnsTaken = 0;
-  this.isOver = false;
   this.winMessage = "You've found all the matches!";
 };
 
