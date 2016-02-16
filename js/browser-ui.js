@@ -42,8 +42,8 @@ var play = function (thisGame) {
           firstSpace.matched = true;
           secondSpace.matched = true;
         } else {
-          $("#" + secondDOMCell).children(".image").fadeOut(1000);
-          $("#" + firstDOMCell).children(".image").fadeOut(1000);
+          $("#" + secondDOMCell).children(".image").fadeOut(1250);
+          $("#" + firstDOMCell).children(".image").fadeOut(1250);
         }
         firstSpace = "";
         secondSpace = "";

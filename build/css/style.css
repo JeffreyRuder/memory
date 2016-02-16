@@ -9,6 +9,7 @@
   text-align: center;
   overflow: hidden;
   padding: 0;
+  border-radius: 15px;
 }
 
 /* centered columns styles */
