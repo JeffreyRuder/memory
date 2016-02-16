@@ -31,9 +31,15 @@ gulp.task("clean", function(){
   return del(['build', 'tmp']);
 });
 
+gulp.task("move", function() {
+  return gulp.src(['./img/*.jpg'])
+    .pipe(gulp.dest('./build/img'));
+});
+
 gulp.task("build", ["clean"], function() {
   if (buildProduction) {
     gulp.start('minifyScripts');
+    gulp.start('move');
     return gulp.src(['./css/*.css'])
       .pipe(gulp.dest('./build/css'));
   } else {

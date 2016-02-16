@@ -2,13 +2,11 @@ var Game = require('./../js/memory.js').Game;
 var Space = require('./../js/memory.js').Space;
 
 var imageArray = [
-  'A', 'B', 'C', 'D',
-  'E', 'F', 'G', 'H',
-  'A', 'B', 'C', 'D',
-  'E', 'F', 'G', 'H'
+  '1', '2', '3', '4', '5', '6', '7', '8',
+  '1', '2', '3', '4', '5', '6', '7', '8'
 ];
 
-var playerChoice = function (thisGame) {
+var play = function (thisGame) {
   var flipCount = 0;
   var firstSpace;
   var firstDOMCell;
@@ -51,6 +49,13 @@ var playerChoice = function (thisGame) {
         }
         firstSpace = "";
         secondSpace = "";
+        var allMatched = thisGame.spaces.every(function(space) {
+          return space.matched === true;
+        });
+        if (allMatched) {
+          alert(thisGame.winMessage + " It took you " + (flipCount / 2) + " guesses.");
+          window.location.reload(true);
+        }
       }
     }
 
@@ -71,11 +76,11 @@ $(document).ready(function() {
 
   //draw grid
   for (var i = 1; i <= thisGame.rows; i++) {
-    $(".game-grid").append("<div class='row' id='row" + i + "'></div>" );
+    $(".game-grid").append("<div class='row row-centered' id='row" + i + "'></div>" );
     for (var j = 1; j <= thisGame.columns; j++) {
-      $("#row" + i).append("<div class='cell col-sm-2' id='" + i + "_" + j + "'><span hidden class='image'>" + thisGame.getSpace(i, j).pic + "</span></div>");
+      $("#row" + i).append("<div class='cell col-sm-2' id='" + i + "_" + j + "'><span hidden class='image'><img src='build/img/" + thisGame.getSpace(i, j).pic + ".jpg'></span></div>");
     }
   }
 
-  playerChoice(thisGame);
+  play(thisGame);
 });

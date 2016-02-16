@@ -1,8 +1,19 @@
 .cell {
+  background: url("../img/bg.jpg") center;
+  background-size: cover;
   height: 200px;
   width: 200px;
   border: 1px solid black;
   margin: 10px;
   font-size: 40px;
   text-align: center;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* centered columns styles */
+.game-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
